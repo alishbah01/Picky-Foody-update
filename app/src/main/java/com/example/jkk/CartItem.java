@@ -3,7 +3,7 @@ package com.example.jkk;
 public class CartItem {
     private String FoodName;
     private String FoodPrice;
-    private int quantity;
+    private int totalQuantity;
     private String totalPrice;
 
     public CartItem() {
@@ -28,12 +28,12 @@ public class CartItem {
         this.FoodPrice = foodPrice;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getTotalQuantity() {
+        return totalQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setTotalQuantity(int quantity) {
+        this.totalQuantity = quantity;
     }
 
     public String getTotalPrice() {
