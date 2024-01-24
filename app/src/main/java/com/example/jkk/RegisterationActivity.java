@@ -17,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegisterationActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
     private SharedPreferences.Editor editor;
@@ -35,7 +35,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public void login(View view) {
-        startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+        startActivity(new Intent(RegisterationActivity.this, LoginActivity.class));
     }
 
     public void openNavigationDrawer(View view) {

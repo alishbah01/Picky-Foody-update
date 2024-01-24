@@ -35,7 +35,7 @@ public class MyCartFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         cartItemList = new ArrayList<>();
-        cartAdapter = new CartAdapter(cartItemList);
+        cartAdapter = new CartAdapter(cartItemList,getContext());
         recyclerView.setAdapter(cartAdapter);
 
         // Initialize Firestore and FirebaseAuth
