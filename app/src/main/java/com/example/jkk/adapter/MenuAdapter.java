@@ -122,7 +122,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
         // Add the cartMap to Firestore under the user's document
         db.collection("cart")
-                .document(userId).set(cartMap)
+                .document(userId)
+                .collection("cart")
+                .add(cartMap)
                 .addOnSuccessListener(documentReference -> {
                     // Show a toast message
                     Toast.makeText(context, "Added to Cart", Toast.LENGTH_SHORT).show();

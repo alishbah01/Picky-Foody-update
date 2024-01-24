@@ -14,14 +14,19 @@
         android:theme="@style/Theme.JKK"
         tools:targetApi="31">
         <activity
+            android:name=".FoodItemCard"
+            android:exported="false" />
+
+        <activity
+            android:name=".DetailActivityfood"
+            android:exported="false" />
+        <activity
             android:name=".AdminChangeSetting"
             android:exported="false" />
         <activity
             android:name=".AdminhelpCenter"
             android:exported="false" />
-        <activity
-            android:name=".alishba"
-            android:exported="false" />
+
         <activity
             android:name=".UserItem"
             android:exported="false" />
