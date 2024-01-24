@@ -1,5 +1,6 @@
 package com.example.jkk.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +17,12 @@ import java.util.List;
 public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
     private List<CartItem> cartItemList;
+    private Context context;
 
-    public CartAdapter(List<CartItem> cartItemList) {
+    public CartAdapter(List<CartItem> cartItemList, Context context) {
+        this.context = context;
         this.cartItemList = cartItemList;
+
     }
 
     @NonNull
@@ -31,10 +35,16 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CartItem cartItem = cartItemList.get(position);
-        holder.foodNameTextView.setText(cartItem.getFoodName());
-        holder.foodPriceTextView.setText(cartItem.getFoodPrice());
-        holder.quantityTextView.setText(String.valueOf(cartItem.getTotalQuantity()));
-        holder.totalPriceTextView.setText(cartItem.getTotalPrice());
+        holder.foodNameTextView.setText("Food Name:\t"+cartItem.getFoodName());
+
+        // Format price-related information
+//        String formattedPrice = String.format("$ %.2f", cartItem.getFoodPrice());
+        holder.foodPriceTextView.setText("Food Price:\t"+cartItem.getFoodPrice());
+
+        holder.quantityTextView.setText("Quantity:\t"+cartItem.getTotalQuantity());
+
+        // Format total price information
+        holder.totalPriceTextView.setText("Total Price:\t"+cartItem.getTotalPrice());
     }
 
     @Override

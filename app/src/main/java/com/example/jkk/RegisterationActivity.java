@@ -2,7 +2,6 @@ package com.example.jkk;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -18,7 +17,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RegisterationActivity extends AppCompatActivity {
+public class RegistrationActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
     private SharedPreferences.Editor editor;
@@ -29,14 +28,14 @@ public class RegisterationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registeration);
 
         // Initialize Firebase Authentication
-        fAuth = FirebaseAuth.getInstance();
+//        fAuth = FirebaseAuth.getInstance();
         // Initialize SharedPreferences editor
-        SharedPreferences sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+//        SharedPreferences sharedPreferences = getSharedPreferences("your_preference_name", MODE_PRIVATE);
+//        editor = sharedPreferences.edit();
     }
 
     public void login(View view) {
-        startActivity(new Intent(RegisterationActivity.this, LoginActivity.class));
+        startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
     }
 
     public void openNavigationDrawer(View view) {
@@ -67,46 +66,47 @@ public class RegisterationActivity extends AppCompatActivity {
     }
 
     public void createNewUser(String email, String password, String name) {
-        fAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        FirebaseUser fuser = fAuth.getCurrentUser();
-                        if (fuser != null) {
-                            fuser.sendEmailVerification().addOnCompleteListener(task1 ->
-
-                                    Toast.makeText(this, "Register Successfully, Verify your Mail before login", Toast.LENGTH_SHORT).show());
-
-                        }
-
-                        String userID = fAuth.getCurrentUser() != null ? fAuth.getCurrentUser().getUid() : "";
-                        Map<String, Object> user = new HashMap<>();
-                        user.put("id", userID);
-                        user.put("name", name);
-                        user.put("email", email);
-                        user.put("password", password);
-                        user.put("role", "customer");
-
-                        editor.putString("id", userID);
-                        editor.putString("name", name);
-                        editor.putString("role", "customer");
-                        editor.putString("email", email);
-                        editor.apply();
-
-                        FirebaseFirestore.getInstance().collection("users").document(userID)
-                                .set(user)
-
-
-                                .addOnSuccessListener(documentReference -> {
-                                    Toast.makeText(this, "User added to Firestore", Toast.LENGTH_SHORT).show();
-                                })
-                                .addOnFailureListener(e -> Log.d("TAG", "Failed to add user to Firestore"));
-
-                        Intent mainActivity = new Intent(this, LoginActivity.class);
-                        this.startActivity(mainActivity);
-                    } else {
-                        Toast.makeText(this, "Error: " + (task.getException() != null ? task.getException().getMessage() : ""), Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(e -> Log.d("onFailure", "Email not sent"));
+//        fAuth.createUserWithEmailAndPassword(email, password)
+//                .addOnCompleteListener(this, task -> {
+//                    if (task.isSuccessful()) {
+//                        FirebaseUser fuser = fAuth.getCurrentUser();
+//                        if (fuser != null) {
+//                            fuser.sendEmailVerification().addOnCompleteListener(task1 ->
+//
+//                                    Toast.makeText(this, "Register Successfully, Verify your Mail before login", Toast.LENGTH_SHORT).show());
+//
+//                        }
+//
+//                        String userID = fAuth.getCurrentUser() != null ? fAuth.getCurrentUser().getUid() : "";
+//                        Map<String, Object> user = new HashMap<>();
+//                        user.put("id", userID);
+//                        user.put("name", name);
+//                        user.put("email", email);
+//                        user.put("password", password);
+//                        user.put("role", "customer");
+//
+//                        editor.putString("id", userID);
+//                        editor.putString("name", name);
+//                        editor.putString("role", "customer");
+//                        editor.putString("email", email);
+//                        editor.apply();
+//
+//                        FirebaseFirestore.getInstance().collection("users").document(userID)
+//                                .set(user)
+//
+//
+//                                .addOnSuccessListener(documentReference -> {
+//                                    Toast.makeText(this, "User added to Firestore", Toast.LENGTH_SHORT).show();
+//                                })
+//                                .addOnFailureListener(e -> Log.d("TAG", "Failed to add user to Firestore"));
+//
+//                        Intent mainActivity = new Intent(this, LoginActivity.class);
+//                        this.startActivity(mainActivity);
+//                    } else {
+//                        Toast.makeText(this, "Error: " + (task.getException() != null ? task.getException().getMessage() : ""), Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addOnFailureListener(e -> Log.d("onFailure", "Email not sent"));
+//    }
     }
 }
