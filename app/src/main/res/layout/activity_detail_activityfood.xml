@@ -6,12 +6,36 @@
     tools:context=".DetailActivityfood">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="hello"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/foodDescriptionTextView"
+        android:layout_width="397dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="60dp"
+        android:maxLines="5"
+    android:ellipsize="none"
+    android:inputType="textMultiLine"
+    android:text="This is a multiline text.\nYou can add more lines as needed."
+    android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foodIngredientTextView"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/foodIngredientTextView"
+        android:layout_width="392dp"
+        android:layout_height="29dp"
+        android:layout_below="@id/foodDescriptionTextView"
+        android:maxLines="5"
+        android:ellipsize="none"
+        android:inputType="textMultiLine"
+        android:layout_marginTop="16dp"
+        android:text="Ingredient"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

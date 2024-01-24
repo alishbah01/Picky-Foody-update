@@ -54,8 +54,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         AllMenu menu = menuList.get(position);
         String imageUrl = menu.getFoodImage();
         holder.PriceTextView.setText(menu.getFoodPrice());
-        holder.foodDescriptionTextView.setText(menu.getFoodDescription());
-        holder.foodIngredientTextView.setText(menu.getFoodIngredient());
+
         holder.foodNameTextView.setText(menu.getFoodName());
         if (imageUrl != null) {
             Picasso.get()
@@ -99,14 +98,16 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 // Call a method to add to the cart
-                startDetailActivity();
+                startDetailActivity(menu);
             }
         });
     }
-    private void startDetailActivity() {
+    private void startDetailActivity(AllMenu menu) {
         // Check if the context is an instance of an Activity
         if (context instanceof Activity) {
             Intent intent = new Intent(context, DetailActivityfood.class);
+            intent.putExtra("ingredients", menu.getFoodIngredient() );
+            intent.putExtra("FoodDescription", menu.getFoodDescription() );
             context.startActivity(intent);
         } else {
             // Handle the case where the context is not an instance of an Activity
@@ -165,8 +166,6 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         TextView foodNameTextView;
         ImageView foodImageView;
         TextView PriceTextView;
-       TextView foodDescriptionTextView;
-       TextView foodIngredientTextView;
         Button btnplus;
         Button btnminus;
         Button addtocart;
@@ -183,8 +182,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             btnplus = itemView.findViewById(R.id.PlusButton);
             addtocart = itemView.findViewById(R.id.addcartButton);
             quantity = itemView.findViewById(R.id.QuantityTextView);
-            foodDescriptionTextView =itemView.findViewById(R.id.foodDescriptionTextView);
-            foodIngredientTextView =itemView.findViewById(R.id.foodIngredientTextView);
+
             seeDetails = itemView.findViewById(R.id.details);
         }
     }
