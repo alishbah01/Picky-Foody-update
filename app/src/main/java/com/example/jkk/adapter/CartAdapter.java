@@ -35,6 +35,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         CartItem cartItem = cartItemList.get(position);
+
         holder.foodNameTextView.setText("Food Name:\t"+cartItem.getFoodName());
 
         // Format price-related information
@@ -45,6 +46,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
 
         // Format total price information
         holder.totalPriceTextView.setText("Total Price:\t"+cartItem.getTotalPrice());
+
     }
 
     @Override

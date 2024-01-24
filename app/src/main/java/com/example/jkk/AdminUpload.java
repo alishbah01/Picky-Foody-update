@@ -74,18 +74,17 @@ public class AdminUpload extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(mUploadTask != null && mUploadTask.isInProgress()){
-                    Toast.makeText(AdminUpload.this,"Upload in progress", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdminUpload.this, "Upload in progress", Toast.LENGTH_SHORT).show();
+                } else {
+                    uploadFile();
                 }
-                else{
-                uploadFile();
-            }}
+            }
         });
 
         mTextViewShowUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openImagesActivity();
-                // Handle the action when the "Show Uploads" text is clicked.
             }
         });
     }
@@ -116,10 +115,17 @@ public class AdminUpload extends AppCompatActivity {
     }
 
     private void uploadFile() {
+        // Check if the file name is missing
+        String fileName = mEditTextFileName.getText().toString().trim();
+        if (fileName.isEmpty()) {
+            Toast.makeText(AdminUpload.this, "Enter Food Category Name", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         if (mImageUri != null) {
             StorageReference fileReference = mStorageRef.child(System.currentTimeMillis() + "." + getFileExtension(mImageUri));
 
-         mUploadTask =   fileReference.putFile(mImageUri)
+            mUploadTask = fileReference.putFile(mImageUri)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -128,7 +134,7 @@ public class AdminUpload extends AppCompatActivity {
                                 public void onSuccess(Uri uri) {
                                     // Use a Map to store the data
                                     Map<String, Object> upload = new HashMap<>();
-                                    upload.put("fileName", mEditTextFileName.getText().toString().trim());
+                                    upload.put("fileName", fileName);
                                     upload.put("imageUrl", uri.toString());
 
                                     // Add the data to Firestore
@@ -173,9 +179,9 @@ public class AdminUpload extends AppCompatActivity {
             Toast.makeText(this, "No file selected", Toast.LENGTH_SHORT).show();
         }
     }
-    private void openImagesActivity(){
 
-        Intent intent = new Intent( this, AdminImagesActivity.class);
+    private void openImagesActivity() {
+        Intent intent = new Intent(this, AdminImagesActivity.class);
         startActivity(intent);
     }
 }

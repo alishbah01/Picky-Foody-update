@@ -19,14 +19,22 @@
         android:theme="@style/Theme.JKK"
         tools:targetApi="31">
         <activity
+
             android:name=".AdminPopUp"
+
+            android:name=".FoodItemCard"
+
+ 
+            android:name=".DetailActivityfood"
             android:exported="false" />
         <activity
+
             android:name=".AdminChangeSetting"
             android:exported="false" />
         <activity
             android:name=".AdminhelpCenter"
             android:exported="false" />
+
         <activity
             android:name=".UserItem"
             android:exported="false" />

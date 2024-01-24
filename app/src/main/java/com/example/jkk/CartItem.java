@@ -1,9 +1,12 @@
 package com.example.jkk;
 
 public class CartItem {
+
     private String foodName;
     private String foodPrice;
     private String totalQuantity;
+
+
     private String totalPrice;
 
     public CartItem() {
@@ -50,12 +53,15 @@ public class CartItem {
         this.foodPrice = foodPrice;
     }
 
+
     public String getTotalQuantity() {
         return totalQuantity;
     }
 
     public void setTotalQuantity(String totalQuantity) {
         this.totalQuantity = totalQuantity;
+
+
     }
 
     public String getTotalPrice() {
