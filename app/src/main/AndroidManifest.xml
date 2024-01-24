@@ -20,10 +20,10 @@
         tools:targetApi="31">
         <activity
 
-            android:name=".AdminPopUp"
-
-            android:name=".FoodItemCard"
-
+            android:name=".AdminPopUp"/>
+        <activity
+            android:name=".FoodItemCard"/>
+        <activity
  
             android:name=".DetailActivityfood"
             android:exported="false" />
