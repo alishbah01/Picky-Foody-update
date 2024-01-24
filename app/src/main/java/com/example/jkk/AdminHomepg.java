@@ -32,4 +32,9 @@ public class AdminHomepg extends AppCompatActivity {
     public void   setting(View view) {
         startActivity(new Intent(AdminHomepg.this, AdminSetting.class));
     }
+    public void POPUP(View view) {
+        // Intent to navigate to PopupAdminActivity
+        Intent intent = new Intent(AdminHomepg.this, PopUpAdminactivity.class);
+        startActivity(intent);
+    }
      }
