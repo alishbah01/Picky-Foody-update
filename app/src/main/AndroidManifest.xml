@@ -24,7 +24,6 @@
         <activity
             android:name=".FoodItemCard"/>
         <activity
- 
             android:name=".DetailActivityfood"
             android:exported="false" />
         <activity

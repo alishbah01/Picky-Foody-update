@@ -1,7 +1,9 @@
 package com.example.jkk.adapter;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jkk.AllMenu;
+import com.example.jkk.DetailActivityfood;
+import com.example.jkk.FoodItemCard;
 import com.example.jkk.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -90,8 +94,25 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
                 addToCart(menu, holder.quantity.getText().toString());
             }
         });
-    }
 
+        holder.seeDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Call a method to add to the cart
+                startDetailActivity();
+            }
+        });
+    }
+    private void startDetailActivity() {
+        // Check if the context is an instance of an Activity
+        if (context instanceof Activity) {
+            Intent intent = new Intent(context, DetailActivityfood.class);
+            context.startActivity(intent);
+        } else {
+            // Handle the case where the context is not an instance of an Activity
+            Toast.makeText(context, "Unable to start activity", Toast.LENGTH_SHORT).show();
+        }
+    }
     private void addToCart(AllMenu menu, String quantity) {
         String saveCurrentDate, saveCurrentTime;
         Calendar calForDate = Calendar.getInstance();
@@ -110,8 +131,8 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
 
         // Create a HashMap to store cart information
         Map<String, Object> cartMap = new HashMap<>();
-        cartMap.put("FoodName", menu.getFoodName());
-        cartMap.put("FoodPrice", menu.getFoodPrice());
+        cartMap.put("foodName", menu.getFoodName());
+        cartMap.put("foodPrice", menu.getFoodPrice());
         cartMap.put("currentDate", saveCurrentDate);
         cartMap.put("currentTime", saveCurrentTime);
         cartMap.put("totalQuantity", quantity);
@@ -121,7 +142,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         String userId = auth.getCurrentUser().getUid();
 
         // Add the cartMap to Firestore under the user's document
-        db.collection("cart")
+        db.collection("users")
                 .document(userId)
                 .collection("cart")
                 .add(cartMap)
@@ -149,7 +170,9 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         Button btnplus;
         Button btnminus;
         Button addtocart;
+        Button seeDetails;
         TextView quantity;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -162,6 +185,7 @@ public class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
             quantity = itemView.findViewById(R.id.QuantityTextView);
             foodDescriptionTextView =itemView.findViewById(R.id.foodDescriptionTextView);
             foodIngredientTextView =itemView.findViewById(R.id.foodIngredientTextView);
+            seeDetails = itemView.findViewById(R.id.details);
         }
     }
 }

@@ -17,7 +17,7 @@ public class FoodItemCard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.food_item_card);
         // Find the button by ID
-        Details = findViewById(R.id.pc);}
+        Details = findViewById(R.id.details);}
 
 
     public void seedetails(View view) {

@@ -6,6 +6,9 @@ public class CartItem {
     private String foodPrice;
     private String totalQuantity;
 
+    private String currentTime;
+    private String currentDate;
+
 
     private String totalPrice;
 
@@ -13,7 +16,7 @@ public class CartItem {
         // Required empty public constructor for Firestore
     }
 
-    public CartItem(String foodName, String foodPrice, String totalQuantity, String totalPrice) {
+    public CartItem(String foodName, String foodPrice, String totalQuantity, String totalPrice,String currentDate, String currentTime) {
         if (foodName == null || foodName.trim().isEmpty()) {
             this.foodName = "No Name";
         } else {
@@ -40,9 +43,19 @@ public class CartItem {
     public String getFoodName() {
         return foodName;
     }
+    public String getCurrentDate() {
+        return currentDate;
+    }
+    public String getCurrentTime() {
+        return currentTime;
+    }
 
-    public void setFoodName(String foodName) {
-        this.foodName = foodName;
+
+    public void setCurrentTime(String currentTime) {
+        this.currentDate= currentTime;
+    }
+    public void setCurrentDate(String currentDate) {
+        this.currentDate = currentDate;
     }
 
     public String getFoodPrice() {
