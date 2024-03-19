@@ -43,7 +43,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private void scheduleNotification(String title, String text, String key1, String key2) {
         createNotificationChannel();
 
-        Intent intent = new Intent(this, PopUpAdminactivity.class);
+        Intent intent = new Intent(this, popupAdminactivity.class);
         Toast.makeText(this, "ADDING", Toast.LENGTH_SHORT).show();
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 

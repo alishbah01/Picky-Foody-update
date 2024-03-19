@@ -21,9 +21,9 @@
             android:icon="@drawable/baseline_manage_history_24"
             android:title="@string/History" />
         <item
-            android:id="@+id/nav_HelpCenter"
-            android:icon="@android:drawable/ic_menu_help"
-            android:title="@string/HelpCenter" />
+            android:id="@+id/nav_Feedback"
+            android:icon="@drawable/baseline_email_24"
+            android:title="@string/Feedback" />
         <item
             android:id="@+id/nav_Vouchers"
             android:icon="@drawable/baseline_menu_book_24"

@@ -1,41 +1,156 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".DetailActivityfood">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/foodDescriptionTextView"
-        android:layout_width="397dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="60dp"
-        android:maxLines="5"
-    android:ellipsize="none"
-    android:inputType="textMultiLine"
-    android:text="This is a multiline text.\nYou can add more lines as needed."
-    android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:background="@android:color/background_light"
+        tools:context=".DetailActivityfood">
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/langar"
+            android:padding="10dp"
+            android:text="Food Description"
+            android:textAlignment="center"
+            android:textColor="@color/purple_700"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="16dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Nutrients"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/foodDescriptionTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodIngredientTextView"
+            app:layout_constraintVertical_bias="0.865" />
+
+        <TextView
+            android:id="@+id/foodDescriptionTextView"
+            android:layout_width="387dp"
+            android:layout_height="306dp"
+            android:layout_marginTop="96dp"
+            android:ellipsize="none"
+            android:inputType="textMultiLine"
+            android:maxLines="45"
+            android:padding="20dp"
+            android:text="This is a multiline text.\nYou can add more lines as needed."
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodIngredientTextView"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="5dp"
+            android:text="Ingredient"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/foodIngredientTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/foodIngredientTextView"
+            android:layout_width="387dp"
+            android:layout_height="460dp"
+            android:layout_below="@id/foodDescriptionTextView"
+            android:layout_marginTop="108dp"
+            android:ellipsize="none"
+            android:inputType="textMultiLine"
+            android:maxLines="25"
+            android:padding="20dp"
+            android:text="Ingredient"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Add an EditText for user to input special instructions -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:padding="5dp"
+            android:text="Special Instructions"
+            android:textColor="@color/teal_700"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/foodSpecialInstructionsEditText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodDescriptionTextView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <EditText
+            android:id="@+id/foodSpecialInstructionsEditText"
+            android:layout_width="387dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:ellipsize="none"
+            android:inputType="textMultiLine"
+            android:maxLines="5"
+            android:padding="20dp"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:background="@drawable/edittext_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodDescriptionTextView"
+            tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/submitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Submit"
+            android:onClick="submit"
+            android:textColor="@android:color/white"
+           android:shadowColor="@color/purple_700"
+        app:layout_constraintTop_toBottomOf="@+id/foodSpecialInstructionsEditText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/foodIngredientTextView"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <TextView
-        android:id="@+id/foodIngredientTextView"
-        android:layout_width="392dp"
-        android:layout_height="29dp"
-        android:layout_below="@id/foodDescriptionTextView"
-        android:maxLines="5"
-        android:ellipsize="none"
-        android:inputType="textMultiLine"
-        android:layout_marginTop="16dp"
-        android:text="Ingredient"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        <Button
+            android:id="@+id/voiceButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:text="Voice Input"
+            android:textColor="@android:color/white"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.512"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/foodSpecialInstructionsEditText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

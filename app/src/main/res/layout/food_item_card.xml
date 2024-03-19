@@ -51,7 +51,7 @@
                 android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
-                android:layout_marginStart="48dp"
+                android:layout_marginStart="16dp"
                 android:fontFamily="@font/langar"
                 android:text="french fries"
                 android:textColor="#F65555"
@@ -120,7 +120,7 @@
                 android:id="@+id/details"
                 android:layout_width="136dp"
                 android:layout_height="47dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="48dp"
                 android:layout_marginBottom="4dp"
                 android:text="see detail"
                 app:layout_constraintBottom_toBottomOf="parent"

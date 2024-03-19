@@ -16,7 +16,5 @@ public class AdminSetting extends AppCompatActivity {
    public void   Setting(View view) {
       startActivity(new Intent(AdminSetting.this, AdminChangeSetting.class));
   }
-    public void   helpCenter(View view) {
-        startActivity(new Intent(AdminSetting.this, AdminhelpCenter.class));
-    }
+
 }

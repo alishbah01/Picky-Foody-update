@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Share Your Recipe, We'll Cook!"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/selectIngredientsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Inventory option"
+        android:textSize="18sp"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
+
+    <Spinner
+        android:id="@+id/ingredientSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectIngredientsText"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:spinnerMode="dropdown" />
+
+    <Button
+        android:id="@+id/addIngredientButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ingredientSpinner"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:text="Select varieties" />
+
+    <TextView
+        android:id="@+id/selectedIngredientsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Selected Ingredients:"
+        android:textSize="18sp"
+        android:layout_below="@id/addIngredientButton"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
+
+    <TextView
+        android:id="@+id/selectedIngredientsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectedIngredientsText"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <TextView
+        android:id="@+id/recipeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recipe:"
+        android:textSize="18sp"
+        android:layout_below="@id/selectedIngredientsList"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp" />
+
+    <EditText
+        android:id="@+id/recipeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recipeText"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:inputType="textMultiLine"
+        android:minLines="5"
+        android:gravity="top" />
+
+    <Button
+        android:id="@+id/submitRecipeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recipeEditText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Submit Recipe" />
+
+</RelativeLayout>
+
+

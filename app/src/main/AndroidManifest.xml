@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
-<!--    <service-->
-<!--        android:name=".MyFirebaseInstanceIDService">-->
-<!--        <intent-filter>-->
-<!--            <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
-<!--        </intent-filter>-->
-<!--    </service>-->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,21 +22,31 @@
         android:theme="@style/Theme.JKK"
         tools:targetApi="31">
         <activity
-
-            android:name=".AdminPopUp"/>
+            android:name=".MessageActivity"
+            android:exported="false" />
         <activity
-            android:name=".FoodItemCard"/>
+            android:name=".Personalized_food"
+            android:exported="false" />
+        <activity
+            android:name=".popupAdminactivity"
+            android:exported="false" />
+        <activity
+            android:name=".popup_Adminactivity"
+            android:exported="false" />
+        <activity
+            android:name=".popupadminactivity"
+            android:exported="false" />
+        <activity android:name=".AdminPopUp" />
+        <activity android:name=".FoodItemCard" />
         <activity
             android:name=".DetailActivityfood"
             android:exported="false" />
         <activity
-
             android:name=".AdminChangeSetting"
             android:exported="false" />
         <activity
             android:name=".AdminhelpCenter"
             android:exported="false" />
-
         <activity
             android:name=".UserItem"
             android:exported="false" />
@@ -98,6 +111,7 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <service
             android:name=".MyFirebaseMessagingService"
             android:exported="true">

@@ -30,20 +30,14 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarNavigation.toolbar);
-        binding.appBarNavigation.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_orders, R.id.nav_Favourite, R.id.nav_History, R.id.nav_HelpCenter, R.id.nav_Vouchers, R.id.nav_MyCart, R.id.nav_Popup, R.id.nav_Setting, R.id.nav_Logout)
+                R.id.nav_home, R.id.nav_orders, R.id.nav_Favourite, R.id.nav_History, R.id.nav_Feedback, R.id.nav_Vouchers, R.id.nav_MyCart, R.id.nav_Popup, R.id.nav_Setting, R.id.nav_Logout)
                 .setOpenableLayout(drawer)
                 .build();
 

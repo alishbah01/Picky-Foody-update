@@ -20,7 +20,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-public class PopUpAdminactivity extends AppCompatActivity {
+public class popupAdminactivity extends AppCompatActivity {
 
     private EditText editTextTitle, editTextMessage;
     private Button buttonAddNotification;
@@ -82,7 +82,7 @@ public class PopUpAdminactivity extends AppCompatActivity {
             createNotificationChannel();
         }
 
-        Intent intent = new Intent(this, PopUpAdminactivity.class);
+        Intent intent = new Intent(this, popupAdminactivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE); // Add FLAG_IMMUTABLE
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "channel_id")
